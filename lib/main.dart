@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hackatum2020chatbot/dialog_flow.dart';
+import 'package:hackatum2020chatbot/WelcomeScreen.dart';
 
 void main() => runApp(MyApp());
 
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
         // primarySwatch: Colors.green,
         // accentColor: Colors.green,
       
-      home: FlutterFactsChatBot(),
+      home: WelcomeScreen(),
     );
     
   }

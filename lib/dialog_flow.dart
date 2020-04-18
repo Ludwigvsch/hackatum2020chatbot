@@ -1,18 +1,18 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:hackatum2020chatbot/WelcomeScreen.dart';
 import 'package:hackatum2020chatbot/facts_message.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
-import 'package:flutter_dialogflow/dialogflow_v2.dart';
+// import 'package:flutter_dialogflow/dialogflow_v2.dart';
 import 'package:http/http.dart' as http;
 import 'dart:math';
+import 'package:hackatum2020chatbot/SideBarButton.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:hackatum2020chatbot/dialog_flow.dart';
 
-// main() {
-//   var rng = new Random();
-//   for (var i = 0; i < 10; i++) {
-//     print(rng.nextInt(100));
-//   }
-// }
+
+final _auth = FirebaseAuth.instance;
 
 Map<String, dynamic> data;
 String textmessage;
@@ -31,7 +31,7 @@ class _FlutterFactsChatBotState extends State<FlutterFactsChatBot> {
 
   @override
   void initState() {
-    // TODO: implement initState
+    
     super.initState();
     Random random = new Random();
     randomNumber = random.nextInt(100000);
@@ -132,11 +132,38 @@ class _FlutterFactsChatBotState extends State<FlutterFactsChatBot> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: Drawer(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: <Widget>[
+            Sidebar_item(label:'log out', onPressed:() {
+              _auth.signOut();
+              Navigator.push(
+              context, MaterialPageRoute(builder: (context) => WelcomeScreen()));
+            }),
+            
+            // Sidebar_item(label: 'Settings', onPressed: () {
+            //   Navigator.push(
+            //   context, MaterialPageRoute(builder: (context) => Settings()));
+            // }),
+            // Sidebar_item(label: 'About', onPressed: () => {
+            //   Navigator.push(
+            //   context, MaterialPageRoute(builder: (context) => About()))
+            // }),
+            // Sidebar_item(label: ' My Profile', onPressed: () {
+            //   Navigator.push(context,
+            //             MaterialPageRoute(builder: (context) => MyProfile()));
+            // }) 
+          ],
+        ),
+      ),
       appBar: AppBar(
+        // leading: Container(),
         centerTitle: true,
         title: Text("Chat", style: TextStyle(color: Colors.white),),
         // backgroundColor: Colors.white,
-        elevation: 0,
+        
       ),
       body: Column(children: <Widget>[
         Flexible(
