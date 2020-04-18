@@ -75,15 +75,8 @@ class _FlutterFactsChatBotState extends State<FlutterFactsChatBot> {
     _textController.clear();
     try{
       var client = _getClient();
-      client.post('https://civa-app.herokuapp.com', body: {'query': query, 'seessionId':randomNumber}, )..then((response){data = jsonDecode(response.body); textmessage = data['response'];});
-      // final http.Response response = await http.post('https://civa-app.herokuapp.com/$query?sessionId=$randomNumber');
-      // if (response.statusCode == 200) {
-
-      
-      // final http.Response responsebot = await http.get('https://civa-app.herokuapp.com/query?sessionId=$randomNumber');
-      // String data = responsebot.body;
-      // textmessage = jsonDecode(data);
-      // }
+      await client.post('https://civa-app.herokuapp.com/query?sessionId=$randomNumber', body: {'query': query}).then((response){data = jsonDecode(response.body); textmessage = data['response'];});
+     
       Facts message = Facts(
         
         text: textmessage,
@@ -92,17 +85,7 @@ class _FlutterFactsChatBotState extends State<FlutterFactsChatBot> {
       );
       
       
-    // AuthGoogle authGoogle =
-    // await AuthGoogle(fileJson: "assets/civa-bvmklc-0162edeb2e63.json").build();
-    // Dialogflow dialogFlow =
-    // Dialogflow(authGoogle: authGoogle, language: Language.english);
-    // AIResponse response = await dialogFlow.detectIntent(query);
-    // Facts message = Facts(
-    //   text: response.getMessage() ??
-    //       CardDialogflow(response.getListMessage()[0]).title,
-    //   name: "Flutter",
-    //   type: false,
-    // );
+   
     setState(() {
       messageList.insert(0, message);
     });
