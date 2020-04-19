@@ -132,32 +132,32 @@ class _FlutterFactsChatBotState extends State<FlutterFactsChatBot> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: Drawer(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[
-            Sidebar_item(label:'log out', onPressed:() {
-              _auth.signOut();
-              Navigator.push(
-              context, MaterialPageRoute(builder: (context) => WelcomeScreen()));
-            }),
+      // drawer: Drawer(
+      //   child: Column(
+      //     mainAxisAlignment: MainAxisAlignment.center,
+      //     crossAxisAlignment: CrossAxisAlignment.stretch,
+      //     children: <Widget>[
+      //       Sidebar_item(label:'log out', onPressed:() {
+      //         _auth.signOut();
+      //         Navigator.push(
+      //         context, MaterialPageRoute(builder: (context) => WelcomeScreen()));
+      //       }),
             
-            // Sidebar_item(label: 'Settings', onPressed: () {
-            //   Navigator.push(
-            //   context, MaterialPageRoute(builder: (context) => Settings()));
-            // }),
-            // Sidebar_item(label: 'About', onPressed: () => {
-            //   Navigator.push(
-            //   context, MaterialPageRoute(builder: (context) => About()))
-            // }),
-            // Sidebar_item(label: ' My Profile', onPressed: () {
-            //   Navigator.push(context,
-            //             MaterialPageRoute(builder: (context) => MyProfile()));
-            // }) 
-          ],
-        ),
-      ),
+      //       // Sidebar_item(label: 'Settings', onPressed: () {
+      //       //   Navigator.push(
+      //       //   context, MaterialPageRoute(builder: (context) => Settings()));
+      //       // }),
+      //       // Sidebar_item(label: 'About', onPressed: () => {
+      //       //   Navigator.push(
+      //       //   context, MaterialPageRoute(builder: (context) => About()))
+      //       // }),
+      //       // Sidebar_item(label: ' My Profile', onPressed: () {
+      //       //   Navigator.push(context,
+      //       //             MaterialPageRoute(builder: (context) => MyProfile()));
+      //       // }) 
+      //     ],
+      //   ),
+      // ),
       appBar: AppBar(
         // leading: Container(),
         centerTitle: true,

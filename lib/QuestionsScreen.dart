@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:rflutter_alert/rflutter_alert.dart';
 
 String name;
 String gender;
@@ -19,52 +19,86 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
         title: Text('Sign up'),
       ),
       body: SafeArea(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            QuestionTextField(value: name, labeltext: 'Name',),
-            QuestionTextField(value: gender, labeltext: 'Gender',),
-            QuestionTextField(value: age, labeltext: 'Age',),
-            QuestionTextField(value: hometown, labeltext: 'Hometown',),
-            Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Text('Can you help older people?'),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: FlatButton(
-                    color: Colors.blue,
-                    onPressed: () {print('nice');}, 
-                    
-                  child: Text('Yes'),),
-                ),
-                
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: FlatButton(
-                    color: Colors.blue,
-                    onPressed: () {print('bad');}, 
-                  child: Text('No')
-                  
-                  ),
-                )
-              ],
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: FlatButton(
-                color: Colors.blue,
-                onPressed: () {Navigator.pop(context);Navigator.pop(context);},
-               child: Text('Submit')),
-            )
+          child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          QuestionTextField(
+            value: name,
+            labeltext: 'Name',
+          ),
+          QuestionTextField(
+            value: gender,
+            labeltext: 'Gender',
+          ),
+          QuestionTextField(
+            value: age,
+            labeltext: 'Age',
+          ),
+          QuestionTextField(
+            value: hometown,
+            labeltext: 'Hometown',
+          ),
+          // Padding(
+          //   padding: const EdgeInsets.all(16.0),
+          //   child: Text('Can you help older people?'),
+          // ),
+          // Row(
+          //   mainAxisAlignment: MainAxisAlignment.center,
+          //   crossAxisAlignment: CrossAxisAlignment.center,
+          //   children: <Widget>[
+          //     Padding(
+          //       padding: const EdgeInsets.all(8.0),
+          //       child: FlatButton(
+          //         color: Colors.blue,
+          //         onPressed: () {print('nice');},
 
-          ],
-        )
-      ),
+          //       child: Text('Yes'),),
+          //     ),
+
+          //     Padding(
+          //       padding: const EdgeInsets.all(8.0),
+          //       child: FlatButton(
+          //         color: Colors.blue,
+          //         onPressed: () {print('bad');},
+          //       child: Text('No')
+
+          //       ),
+          //     )
+          //   ],
+          // ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: FlatButton(
+                color: Colors.blue,
+                onPressed: () {
+                  Alert(
+                    context: context,
+                    type: AlertType.success,
+                    style: AlertStyle(
+                        titleStyle: TextStyle(
+                          color: Colors.white,
+                        ),
+                        descStyle: TextStyle(color: Colors.white)),
+                    title: "THANK YOU",
+                    desc: "for helping your community",
+                    buttons: [
+                      DialogButton(
+                        color: Colors.blue,
+                        child: Text(
+                          "Ok",
+                          style: TextStyle(color: Colors.white, fontSize: 20),
+                        ),
+                        onPressed: () {Navigator.pop(context);Navigator.pop(context);},
+                        width: 120,
+                      )
+                    ],
+                  ).show();
+                  
+                },
+                child: Text('Submit')),
+          )
+        ],
+      )),
     );
   }
 }
@@ -89,21 +123,18 @@ class QuestionTextField extends StatelessWidget {
             },
             style: TextStyle(color: Colors.blue),
             decoration: InputDecoration(
-              enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(20)),
-                        borderSide:
-                            BorderSide(width: 1, color: Colors.blue),
-                      ),
-                      disabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(20)),
-                        borderSide:
-                            BorderSide(width: 1, color: Colors.blue),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(20)),
-                        borderSide:
-                            BorderSide(width: 1, color: Colors.blue),
-                      ),
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(20)),
+                  borderSide: BorderSide(width: 1, color: Colors.blue),
+                ),
+                disabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(20)),
+                  borderSide: BorderSide(width: 1, color: Colors.blue),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(20)),
+                  borderSide: BorderSide(width: 1, color: Colors.blue),
+                ),
                 // helperStyle: ,
                 labelText: labeltext,
                 labelStyle: TextStyle(color: Colors.white),
@@ -117,6 +148,5 @@ class QuestionTextField extends StatelessWidget {
         ),
       ),
     );
-          
   }
 }

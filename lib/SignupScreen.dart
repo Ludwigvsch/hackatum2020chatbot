@@ -102,19 +102,19 @@ class _SignupScreenState extends State<SignupScreen> {
           Center(
               child: RaisedButton(
             onPressed: () async {
-              try {
-                final newUser = await _auth.createUserWithEmailAndPassword(
-                    email: email, password: password);
-                if (newUser != null) {
+              // try {
+              //   final newUser = await _auth.createUserWithEmailAndPassword(
+              //       email: email, password: password);
+              //   if (newUser != null) {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
                         builder: (context) => QuestionsScreen(),
                       ));
-                }
-              } catch (e) {
-                _onAlertButtonPressed(context);
-              }
+              //   }
+              // } catch (e) {
+              //   _onAlertButtonPressed(context);
+              // }
             },
             child: Text('Submit'),
           ))

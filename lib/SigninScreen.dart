@@ -86,7 +86,7 @@ class _SigninScreenState extends State<SigninScreen> {
                 child: Container(
                     width: 300,
                     child: TextField(
-                      obscureText: true,
+                      // obscureText: true,
                       onChanged: (value) {
                         password = value;
                       },
@@ -121,18 +121,18 @@ class _SigninScreenState extends State<SigninScreen> {
             Center(
                 child: RaisedButton(
               onPressed: () async {
-                try {
-                  AuthResult result = await _auth.signInWithEmailAndPassword(
-                      email: email, password: password);
-                  FirebaseUser user = result.user;
-                  // return user.uid;
-                  if (user != null) {
+                // try {
+                //   AuthResult result = await _auth.signInWithEmailAndPassword(
+                //       email: email, password: password);
+                //   FirebaseUser user = result.user;
+                //   // return user.uid;
+                //   if (user != null) {
                     Navigator.push(context,
                         MaterialPageRoute(builder: (context) => FlutterFactsChatBot()));
-                  }
-                } catch (e) {
-                  _onAlertButtonPressed(context);
-                }
+              //     }
+              //   } catch (e) {
+              //     _onAlertButtonPressed(context);
+              //   }
               },
               child: Text('Submit'),
             ))
