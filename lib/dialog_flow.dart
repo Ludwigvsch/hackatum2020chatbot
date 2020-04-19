@@ -60,7 +60,7 @@ class _FlutterFactsChatBotState extends State<FlutterFactsChatBot> {
                   onPressed: () => _submitQuery(_textController.text)),
             ),
           ],
-        ),
+        )
       ),
     );
   }
