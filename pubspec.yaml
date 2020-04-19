@@ -55,6 +55,7 @@ flutter:
   assets:
     - assets/civa-bvmklc-0162edeb2e63.json
     - images/logo.png
+    - images/C_2.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

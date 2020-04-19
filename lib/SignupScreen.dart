@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:hackatum2020chatbot/QuestionsScreen.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 import '';
 
@@ -11,10 +12,8 @@ class SignupScreen extends StatefulWidget {
 }
 
 class _SignupScreenState extends State<SignupScreen> {
-
   String email;
   String password;
- 
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +21,7 @@ class _SignupScreenState extends State<SignupScreen> {
       appBar: AppBar(
         title: Text('Sign up'),
       ),
-    body: Column(
+      body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
@@ -36,21 +35,18 @@ class _SignupScreenState extends State<SignupScreen> {
                 },
                 style: TextStyle(color: Colors.blue),
                 decoration: InputDecoration(
-                  enabledBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.all(Radius.circular(20)),
-                            borderSide:
-                                BorderSide(width: 1, color: Colors.blue),
-                          ),
-                          disabledBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.all(Radius.circular(20)),
-                            borderSide:
-                                BorderSide(width: 1, color: Colors.blue),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.all(Radius.circular(20)),
-                            borderSide:
-                                BorderSide(width: 1, color: Colors.blue),
-                          ),
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(20)),
+                      borderSide: BorderSide(width: 1, color: Colors.blue),
+                    ),
+                    disabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(20)),
+                      borderSide: BorderSide(width: 1, color: Colors.blue),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(20)),
+                      borderSide: BorderSide(width: 1, color: Colors.blue),
+                    ),
                     // helperStyle: ,
                     labelText: "Enter Email:",
                     labelStyle: TextStyle(color: Colors.white),
@@ -67,40 +63,42 @@ class _SignupScreenState extends State<SignupScreen> {
             height: 10,
           ),
           Center(
+            child: Padding(
+              padding: const EdgeInsets.all(16.0),
               child: Container(
-                  width: 300,
-                  child: TextField(
-                    // obscureText: true,
-                    onChanged: (value) {
-                      password = value;
-                    },
-                    style: TextStyle(color: Colors.blue),
-                    decoration: InputDecoration(
+                width: 300,
+                child: TextField(
+                  keyboardType: TextInputType.emailAddress,
+                  onChanged: (value) {
+                    password = value;
+                  },
+                  style: TextStyle(color: Colors.blue),
+                  decoration: InputDecoration(
                       enabledBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.all(Radius.circular(20)),
-                            borderSide:
-                                BorderSide(width: 1, color: Colors.blue),
-                          ),
-                          disabledBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.all(Radius.circular(20)),
-                            borderSide:
-                                BorderSide(width: 1, color: Colors.blue),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.all(Radius.circular(20)),
-                            borderSide:
-                                BorderSide(width: 1, color: Colors.blue),
-                          ),
-                        // helperStyle: ,
-                        labelText: "Enter Password:",
-                        labelStyle: TextStyle(color: Colors.white),
-                        // labelStyle: kTyperTextStyle,
-                        // hintStyle: kTyperTextStyle,
-                        border: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.blue),
-                          borderRadius: BorderRadius.all(Radius.circular(20)),
-                        )),
-                  ))),
+                        borderRadius: BorderRadius.all(Radius.circular(20)),
+                        borderSide: BorderSide(width: 1, color: Colors.blue),
+                      ),
+                      disabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(20)),
+                        borderSide: BorderSide(width: 1, color: Colors.blue),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(20)),
+                        borderSide: BorderSide(width: 1, color: Colors.blue),
+                      ),
+                      // helperStyle: ,
+                      labelText: 'Password',
+                      labelStyle: TextStyle(color: Colors.white),
+                      // labelStyle: kTyperTextStyle,
+                      // hintStyle: kTyperTextStyle,
+                      border: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.blue),
+                        borderRadius: BorderRadius.all(Radius.circular(20)),
+                      )),
+                ),
+              ),
+            ),
+          ),
           SizedBox(height: 10),
           Center(
               child: RaisedButton(
@@ -109,7 +107,11 @@ class _SignupScreenState extends State<SignupScreen> {
                 final newUser = await _auth.createUserWithEmailAndPassword(
                     email: email, password: password);
                 if (newUser != null) {
-                  Navigator.pop(context);
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => QuestionsScreen(),
+                      ));
                 }
               } catch (e) {
                 _onAlertButtonPressed(context);
@@ -145,6 +147,5 @@ class _SignupScreenState extends State<SignupScreen> {
         )
       ],
     ).show();
-
   }
 }

@@ -12,9 +12,9 @@ class Facts extends StatelessWidget {
       Container(
         margin: const EdgeInsets.only(right: 10.0),
         child: CircleAvatar(child: Padding(
-          padding: const EdgeInsets.all(5),
-          child: Image.asset('logo.png'),
-        ), backgroundColor: Colors.grey[200], radius: 12,),
+          padding: const EdgeInsets.all(4),
+          child: Image.asset('images/C_2.png')
+        ), backgroundColor: Colors.grey[200], radius: 15,),
       ),
       Expanded(
         child: Column(
@@ -46,7 +46,7 @@ class Facts extends StatelessWidget {
           children: <Widget>[
 //            Text(this.name, style: Theme.of(context).textTheme.subhead),
             Card(
-              color: Colors.green[400],
+              color: Colors.blue,
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.all(Radius.circular(20))
                 ),

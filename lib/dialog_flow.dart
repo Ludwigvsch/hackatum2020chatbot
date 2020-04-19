@@ -35,7 +35,6 @@ class _FlutterFactsChatBotState extends State<FlutterFactsChatBot> {
     super.initState();
     Random random = new Random();
     randomNumber = random.nextInt(100000);
-    print(randomNumber);
   }
   
   final List<Facts> messageList = <Facts>[];
@@ -59,7 +58,7 @@ class _FlutterFactsChatBotState extends State<FlutterFactsChatBot> {
             Container(
               margin: EdgeInsets.symmetric(horizontal: 4.0),
               child: IconButton(
-                  icon: Icon(Icons.send, color: Colors.green[400],),
+                  icon: Icon(Icons.send, color: Colors.blue,),
                   onPressed: () => _submitQuery(_textController.text)),
             ),
           ],
@@ -74,6 +73,7 @@ class _FlutterFactsChatBotState extends State<FlutterFactsChatBot> {
     
     _textController.clear();
     try{
+      
       var client = _getClient();
       await client.post('https://civa-app.herokuapp.com/query?sessionId=$randomNumber', body: {'query': query}).then((response){data = jsonDecode(response.body); textmessage = data['response'];});
      
@@ -165,16 +165,18 @@ class _FlutterFactsChatBotState extends State<FlutterFactsChatBot> {
         // backgroundColor: Colors.white,
         
       ),
-      body: Column(children: <Widget>[
-        Flexible(
-            child: ListView.builder(
-              padding: EdgeInsets.all(8.0),
-              reverse: true, //To keep the latest messages at the bottom
-              itemBuilder: (_, int index) => messageList[index],
-              itemCount: messageList.length,
-            )),
-        _queryInputWidget(context),
-      ]),
+      body: SafeArea(
+              child: Column(children: <Widget>[
+          Flexible(
+              child: ListView.builder(
+                padding: EdgeInsets.all(8.0),
+                reverse: true, //To keep the latest messages at the bottom
+                itemBuilder: (_, int index) => messageList[index],
+                itemCount: messageList.length,
+              )),
+          _queryInputWidget(context),
+        ]),
+      ),
     );
   }
 }
