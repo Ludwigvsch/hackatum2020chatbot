@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+
 import 'package:hackatum2020chatbot/QuestionsScreen.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 
-final _auth = FirebaseAuth.instance;
+
 
 class SignupScreen extends StatefulWidget {
   @override

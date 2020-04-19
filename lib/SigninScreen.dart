@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 import 'package:hackatum2020chatbot/dialog_flow.dart';
 
-final _auth = FirebaseAuth.instance;
+
 
 
 class SigninScreen extends StatefulWidget {
@@ -15,19 +14,8 @@ class _SigninScreenState extends State<SigninScreen> {
    String email;
   String password;
 
-  Future<FirebaseUser> getUser() async {
-    return await _auth.currentUser();
-  }
-  @override
-  void initState() {
-    super.initState();
-    getUser().then((user) {
-      if (user != null) {
-        Navigator.push(context,
-          MaterialPageRoute(builder: (context) => FlutterFactsChatBot()));
-      }
-    });
-  }
+  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

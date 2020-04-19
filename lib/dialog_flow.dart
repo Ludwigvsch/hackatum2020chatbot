@@ -1,18 +1,16 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:hackatum2020chatbot/WelcomeScreen.dart';
 import 'package:hackatum2020chatbot/facts_message.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 // import 'package:flutter_dialogflow/dialogflow_v2.dart';
 import 'package:http/http.dart' as http;
 import 'dart:math';
-import 'package:hackatum2020chatbot/SideBarButton.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:hackatum2020chatbot/dialog_flow.dart';
 
 
-final _auth = FirebaseAuth.instance;
+
+
+
 
 Map<String, dynamic> data;
 String textmessage;
