@@ -38,30 +38,27 @@ class _WelcomeScreenState extends State<WelcomeScreen>
       ),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 24.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
+        child: ListView(
+          
           children: <Widget>[
-            Row(
-              children: <Widget>[
-                Hero(
-                  tag: 'logo',
-                  child: Container(
-                    child: Image.asset('images/logo.png'),
-                    height: animation.value * 360,
-                  ),
-                ),
-              ],
+            SizedBox(height: 10),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+              
+                child: Image.asset('images/logo.png'),
+                
+              ),
             ),
             // SizedBox(height: 20),
-            // Text(
-            //   'Your personal AI Bot',
-            //   textAlign: TextAlign.center,
-            //   style: TextStyle(color: Colors.grey[300], fontSize: 20),
-            // ),
-            SizedBox(
-              height: 48.0,
+            Text(
+              'Covid Intelligent Virtual Assistant',
+              textAlign: TextAlign.center,
+              style: TextStyle(color: Colors.grey[300], fontSize: 20, fontStyle: FontStyle.italic),
             ),
+            // SizedBox(
+            //   height: 48.0,
+            // ),
             RoundedButtons(
               buttonColor: Colors.lightBlueAccent,
               label: 'Sign in',

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:hackatum2020chatbot/QuestionsScreen.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
-import '';
 
 final _auth = FirebaseAuth.instance;
 

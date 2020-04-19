@@ -77,41 +77,43 @@ class QuestionTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return Padding(
       padding: const EdgeInsets.all(16.0),
-      child: Container(
-        width: 300,
-        child: TextField(
-          keyboardType: TextInputType.emailAddress,
-          onChanged: (value) {
-            value = value;
-          },
-          style: TextStyle(color: Colors.blue),
-          decoration: InputDecoration(
-            enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(20)),
-                      borderSide:
-                          BorderSide(width: 1, color: Colors.blue),
-                    ),
-                    disabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(20)),
-                      borderSide:
-                          BorderSide(width: 1, color: Colors.blue),
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(20)),
-                      borderSide:
-                          BorderSide(width: 1, color: Colors.blue),
-                    ),
-              // helperStyle: ,
-              labelText: labeltext,
-              labelStyle: TextStyle(color: Colors.white),
-              // labelStyle: kTyperTextStyle,
-              // hintStyle: kTyperTextStyle,
-              border: OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.blue),
-                borderRadius: BorderRadius.all(Radius.circular(20)),
-              )),
+      child: Center(
+        child: Container(
+          width: 300,
+          child: TextField(
+            keyboardType: TextInputType.emailAddress,
+            onChanged: (value) {
+              value = value;
+            },
+            style: TextStyle(color: Colors.blue),
+            decoration: InputDecoration(
+              enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(20)),
+                        borderSide:
+                            BorderSide(width: 1, color: Colors.blue),
+                      ),
+                      disabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(20)),
+                        borderSide:
+                            BorderSide(width: 1, color: Colors.blue),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(20)),
+                        borderSide:
+                            BorderSide(width: 1, color: Colors.blue),
+                      ),
+                // helperStyle: ,
+                labelText: labeltext,
+                labelStyle: TextStyle(color: Colors.white),
+                // labelStyle: kTyperTextStyle,
+                // hintStyle: kTyperTextStyle,
+                border: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.blue),
+                  borderRadius: BorderRadius.all(Radius.circular(20)),
+                )),
+          ),
         ),
       ),
     );

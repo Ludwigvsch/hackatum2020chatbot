@@ -12,8 +12,8 @@ class Facts extends StatelessWidget {
       Container(
         margin: const EdgeInsets.only(right: 10.0),
         child: CircleAvatar(child: Padding(
-          padding: const EdgeInsets.all(4),
-          child: Image.asset('images/C_2.png')
+          padding: const EdgeInsets.all(0),
+          child: Image.asset('images/logo.png')
         ), backgroundColor: Colors.grey[200], radius: 15,),
       ),
       Expanded(
