@@ -1,6 +1,7 @@
 # hackatum2020chatbot
 
 This Project shows the front end of a 48 Hours Hackathon at TUM (Technical University of Munich) made with Flutter.
+Read here more about it: https://devpost.com/software/civa
 
 ## Getting Started
 
