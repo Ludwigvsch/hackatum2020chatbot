@@ -1,6 +1,6 @@
 # hackatum2020chatbot
 
-A new Flutter project.
+This Project shows the front end of a 48 Hours Hackathon at TUM (Technical University of Munich) made with Flutter.
 
 ## Getting Started
 
